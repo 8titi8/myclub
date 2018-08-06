@@ -18,6 +18,8 @@
   </thead>
 
   <tbody>
+     <%= will_paginate %>
+
     <% @users.each do |user| %>
       <tr>
         <td class="align-baseline"><%= user.first_name %></td>
@@ -33,10 +35,10 @@
         </td>
         
       </tr>
+      <%= will_paginate %>
     <% end %>
   </tbody>
 </table>
-
 <br>
 
 <%= link_to 'Nouvel utilisateur', new_user_path, class:"btn btn-primary"  %>
