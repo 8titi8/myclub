@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-   @users = User.paginate(page: params[:page])
+   @users = User.all
     unless logged_in?
       redirect_to login_path, :flash => { :danger => "Pour accéder à cette page, il faut d'abord vous connecter." }
       end

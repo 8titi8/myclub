@@ -18,27 +18,23 @@
   </thead>
 
   <tbody>
-     <%= will_paginate %>
-
     <% @users.each do |user| %>
       <tr>
         <td class="align-baseline"><%= user.first_name %></td>
         <td class="align-baseline"><%= user.last_name %></td>
         <td class="align-baseline"><%= user.email %></td>
         <td class="align-baseline">
-        
-          <!--<div class="btn-group" role="group">
+
+          <div class="btn-group" role="group">
           <button type="button" class="btn btn-default"><%= link_to 'Infos', user %></button>
-          <button type="button" class="btn btn-default"><%= link_to 'Editer', edit_user_path(user) %></button>
-          <button type="button" class="btn btn-default"><%= link_to 'Supprimer', user, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } %></button> -->
         </div>
         </td>
-        
+
       </tr>
-      <%= will_paginate %>
     <% end %>
   </tbody>
 </table>
+
 <br>
 
 <%= link_to 'Nouvel utilisateur', new_user_path, class:"btn btn-primary"  %>
