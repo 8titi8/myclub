@@ -82,7 +82,7 @@ class UsersController < ApplicationController
      # Confirms the correct user.
     def correct_user
       @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
+        redirect_to root_url, :flash => { :danger => "Pour accéder à cette page, il faut d'abord vous connecter." } unless current_user?(@user)
     end
 
   private
