@@ -7,7 +7,7 @@ include SessionsHelper
     @user = users(:one)
   end
 
-  test "should get home" do
+  test "should display navbar selectors" do
     get root_url
     assert_response :success
     if logged_in?
@@ -16,6 +16,21 @@ include SessionsHelper
     else
       assert_select "a[href=?]", '/login', text: "Se connecter" 
       assert_select "a[href=?]", '/users/new', text: "S'inscrire" 
+    end
+  end
+  
+  test "should display body links" do
+    get root_url
+    assert_response :success
+    if logged_in?
+      assert_select 'p' do
+        assert_select "a[href=?]", '/private', text: "Accédez ici à votre espace privé."
+      end
+    else
+      assert_select 'p' do
+        assert_select "a[href=?]", '/login', text: "Connectez-vous" 
+        assert_select "a[href=?]", '/users/new', text: "inscrivez-vous" 
+      end
     end
   end
 
