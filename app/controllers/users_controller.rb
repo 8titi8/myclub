@@ -41,7 +41,7 @@ class UsersController < ApplicationController
         format.html { redirect_to @user, notice: 'Bienvenue à toi nouveau Moussaillon' }
         format.json { render :show, status: :created, location: @user }
       else
-        flash[:danger] = "Email déjà existant"
+        flash[:danger] = "Email déjà existant OU Erreur de saisie - Verifier vos champs"
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end

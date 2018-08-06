@@ -11,3 +11,9 @@ two:
   last_name: antoniali
   email: mantoniali@gmail.com
   password_digest: <%= User.digest('password') %>
+
+user_with_bad_password:
+  first_name: hello
+  last_name: you
+  email: email@gmail.com
+  password_digest: <%= User.digest('ff') %>
