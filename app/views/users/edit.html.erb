@@ -1,6 +1,37 @@
-<h1>Editing User</h1>
+<div class="row">
+<div class=col-md-3>
+</div>
+  <div class="col-md-6">
+  
+<h1>Edition du profil</h1>
 
-<%= render 'form', user: @user %>
+<%= form_for :user do |f| %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<div class="form-group">
+<%= f.text_field :first_name, class:'form-control', placeholder:'Entre ton prénom' %>
+</div>
+
+<div class="form-group">
+<%= f.text_field :last_name, class:'form-control', placeholder:'Entre ton nom' %>
+</div>
+
+<div class="form-group">
+<%= f.email_field :email, class:'form-control', placeholder:'Entre ton e-mail' %>
+</div>
+
+<div class="form-group">
+<%= f.password_field :password, class:'form-control', placeholder:'Entre ton mot de passe' %>
+</div>
+
+<div class="btn inline pull-left">
+<%= f.submit "Modifier", class:'btn btn-primary' %>
+<% end %>
+
+<%= link_to 'Retour', users_path, class:'btn btn-secondary' %>
+</div>
+
+</div>
+<div class=col-md-3>
+</div>
+</div>
+
