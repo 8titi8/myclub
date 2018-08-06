@@ -1,2 +1,18 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<div class="row container-fluid">
+<div class=col-md-3>
+</div>
+<div class="col-md-6">
+<% if logged_in? %>
+  <h1>Bonjour !</h1>
+  <p>Bienvenue sur la page du bridge club de Lyon.</p>
+  <p><%= link_to "Accédez ici à votre espace privé.", private_path %></p>
+
+<% else %>
+  <h1>Bonjour !</h1>
+  <p>Bienvenue sur la page du bridge club de Lyon.</p>
+  <p><%= link_to "Connectez-vous", login_path %> ou <%= link_to "inscrivez-vous", new_user_path %> pour accéder à votre espace privé.</p>
+<% end %>
+</div>
+<div class=col-md-3>
+</div>
+</div>
