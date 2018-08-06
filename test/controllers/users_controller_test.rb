@@ -10,9 +10,14 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
 
   test "should access to private" do
-    log_in_as(@user)
-    get index_url
-    assert_response :success
+    if log_in_as(@user)
+      get index_url
+      assert_response :success
+
+    else
+      get login_url
+      assert_response :success
+    end
   end
 
 end
