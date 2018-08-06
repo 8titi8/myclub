@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
     else
       flash.now[:danger] = 'Combinaison Email / Mot de passe invalide'
       render 'new'
+      
     end
   end
 
