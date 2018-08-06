@@ -1,36 +1,44 @@
 require 'test_helper'
 
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
-include SessionsHelper  
 
   def setup
     @user = users(:one)
   end
 
-  test "should display navbar selectors" do
+  test "should display navbar selectors if user logged" do
+    log_in_as(@user)
     get root_url
     assert_response :success
-    if logged_in?
-      assert_select "a[href=?]", '/users/:id', text: "Mon profil"
-      assert_select "a[href=?]", '/logout', text: "Se déconnecter"
-    else
-      assert_select "a[href=?]", '/login', text: "Se connecter" 
-      assert_select "a[href=?]", '/users/new', text: "S'inscrire" 
+    assert_select "a[href=?]", user_path(@user.id), text: "Mon profil"
+    assert_select "a[href=?]", logout_path        , text: "Me déconnecter"
+    assert_select "a[href=?]", users_path         , text: "Page privée"
+  end
+
+  test "should display navbar selectors if user not logged" do
+    log_out_user
+    get root_url
+    assert_response :success
+    assert_select "a[href=?]", login_path   , text: "Se connecter"
+    assert_select "a[href=?]", new_user_path, text: "S'inscrire"
+  end
+
+  test "should display body links if user logged" do
+    log_in_as(@user)
+    get root_url
+    assert_response :success
+    assert_select 'p' do
+      assert_select "a[href=?]", users_path, text: "Accédez ici à votre espace privé."
     end
   end
-  
-  test "should display body links" do
+
+  test "should display body links if user not logged" do
+    log_out_user
     get root_url
     assert_response :success
-    if logged_in?
-      assert_select 'p' do
-      assert_select "a[href=?]", '/private', text: "Accédez ici à votre espace privé."
-      end
-    else
-      assert_select 'p' do
-        assert_select "a[href=?]", '/login', text: "Connectez-vous" 
-        assert_select "a[href=?]", '/users/new', text: "inscrivez-vous" 
-      end
+    assert_select 'p' do
+      assert_select "a[href=?]", login_path   , text: "Connectez-vous"
+      assert_select "a[href=?]", new_user_path, text: "inscrivez-vous"
     end
   end
 
