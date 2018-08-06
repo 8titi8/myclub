@@ -5,11 +5,15 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    unless logged_in?
+      redirect_to login_path, :flash => { :danger => "Pour accéder à cette page, il faut d'abord vous connecter." }
+      end
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+
   end
 
   # GET /users/new
