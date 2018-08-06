@@ -1,25 +1,28 @@
-<h1>Log in</h1>
-
 <div class="row">
- <div class="col-md-6 col-md-offset-3">
+<div class=col-md-3>
+</div>
+  <div class="col-md-6">
+
+<h1>Connexion</h1>
+
    <%= form_for(:session, url: login_path) do |f| %>
+    <div class="form-group">
+      <%= f.label :"E-mail" %>
+      <%= f.email_field :email, class: 'form-control' %>
+    </div>
 
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name, class: 'form-control' %>
+    <div class="form-group">
+      <%= f.label :"Mot de passe" %>
+      <%= f.password_field :password, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.submit "Connexion", class: "btn btn-primary" %>
+      </div>
+    <% end %>
 
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name, class: 'form-control' %>
+     <p>Nouvel utilisateur ? <%= link_to "S'enregistrer", new_user_path %></p>
 
-    
-     <%= f.label :email %>
-     <%= f.email_field :email, class: 'form-control' %>
-
-     <%= f.label :password %>
-     <%= f.password_field :password, class: 'form-control' %>
-
-     <%= f.submit "Log in", class: "btn btn-primary" %>
-   <% end %>
-
-     <p>New user? <%= link_to "Sign up now!", new_user_path %></p>
- </div>
+</div>
+<div class=col-md-3>
+</div>
 </div>

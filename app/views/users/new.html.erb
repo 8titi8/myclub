@@ -3,28 +3,32 @@
 </div>
   <div class="col-md-6">
   
-<h1>Inscris-toi !</h1>
+<h1>Inscription</h1>
 
 <%= form_for :user do |f| %>
 
 <div class="form-group">
-<%= f.text_field :first_name, class:'form-control', placeholder:'Entre ton prénom' %>
+<%= f.label :"Prénom" %>
+<%= f.text_field :first_name, class:'form-control' %>
 </div>
 
 <div class="form-group">
-<%= f.text_field :last_name, class:'form-control', placeholder:'Entre ton nom' %>
+<%= f.label :"Nom" %>
+<%= f.text_field :last_name, class:'form-control' %>
 </div>
 
 <div class="form-group">
-<%= f.email_field :email, class:'form-control', placeholder:'Entre ton e-mail' %>
+<%= f.label :"E-mail" %>
+<%= f.email_field :email, class:'form-control' %>
 </div>
 
 <div class="form-group">
-<%= f.password_field :password, class:'form-control', placeholder:'Entre ton mot de passe' %>
+<%= f.label :"Mot de passe" %>
+<%= f.password_field :password, class:'form-control' %>
 </div>
 
 <div class="btn inline pull-left">
-<%= f.submit "M'inscrire", class:'btn btn-primary' %>
+<%= f.submit "Enregistrer", class:'btn btn-primary' %>
 <% end %>
 
 <%= link_to 'Retour', users_path, class:'btn btn-secondary' %>
