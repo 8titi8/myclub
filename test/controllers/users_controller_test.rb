@@ -5,6 +5,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:one)
+    @other_user = users(:two)
   end
 
 
