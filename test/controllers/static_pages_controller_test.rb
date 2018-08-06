@@ -24,7 +24,7 @@ include SessionsHelper
     assert_response :success
     if logged_in?
       assert_select 'p' do
-        assert_select "a[href=?]", '/private', text: "Accédez ici à votre espace privé."
+      assert_select "a[href=?]", '/private', text: "Accédez ici à votre espace privé."
       end
     else
       assert_select 'p' do
