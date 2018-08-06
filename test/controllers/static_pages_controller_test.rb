@@ -11,10 +11,11 @@ include SessionsHelper
     get root_url
     assert_response :success
     if logged_in?
-      assert_select "a[href=?]", '/', text: "foo" 
+      assert_select "a[href=?]", '/users/:id/edit', text: "Editer mon profil"
+      assert_select "a[href=?]", '/logout', text: "Se déconnecter"
     else
-      assert_select "a[href=?]", '/', text: "foo" 
-      assert_select "a[href=?]", '/', text: "foo" 
+      assert_select "a[href=?]", '/login', text: "Se connecter" 
+      assert_select "a[href=?]", '/users/new', text: "S'inscrire" 
     end
   end
 
