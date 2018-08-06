@@ -1,24 +1,25 @@
-# README
+# MyClub - private club
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### App rails of the "Cercle THP de Bridge lyonnais" <br/>
+Welcome on board "amiraux", "timonniers", "corsaires" & "mousaillons"  <br/>
 
-Things you may want to cover:
+### Ruby & Rails needed :
 
-* Ruby version
+    Ruby version 2.5.1
+    Rails version 5.2.0
 
-* System dependencies
+### Please check to use :
 
-* Configuration
+Join us online on heroku at : <http://myprivateclub.herokuapp.com/>
 
-* Database creation
 
-* Database initialization
+### Please check to test :
 
-* How to run the test suite
+`bundle install --without production` <br/>
+`rails db:migrate` <br/>
+`rails server` <br/>
 
-* Services (job queues, cache servers, search engines, etc.)
+From THP Lyon to the World: <br/>
 
-* Deployment instructions
+**Happy bridge & thanks for your visit !**
 
-* ...
