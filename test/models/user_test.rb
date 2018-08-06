@@ -14,7 +14,6 @@ class UserTest < ActiveSupport::TestCase
 
   ########################################test first_name & last_name
   test "should be valid" do
-
       assert @user.valid?
   end
 
