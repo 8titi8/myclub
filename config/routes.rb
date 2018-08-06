@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   #rajout routes
   post '/users/new',  to: 'users#create'
   post '/users/:id/edit', to: 'users#edit'
+  get '/users/', to: 'users#index', as: 'index'
   patch '/users/:id', to: 'users#update'
   delete '/users/:id', to: 'users#destroy'
   get '/login', to: 'sessions#new'
