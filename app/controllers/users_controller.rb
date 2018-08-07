@@ -15,9 +15,13 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    unless logged_in?
+    @user = User.find(params[:id])
+
+    if !logged_in?
       redirect_to login_path, :flash => { :danger => "Pour accéder à cette page, il faut d'abord vous connecter." }
-      end
+    elsif !current_user?(@user)
+      redirect_to root_path, :flash => { :danger => "Vous ne pouvez pas acceder a cette page." }
+    end
   end
 
   # GET /users/new

@@ -45,7 +45,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     get users_path
     assert_response :success
-    assert_select "a[href=?]", "/users/", count: User.count
+    assert_select "tr", count: (User.count) + 1  # +1 car  un tr utilisé pour la legende
 
   end
 
