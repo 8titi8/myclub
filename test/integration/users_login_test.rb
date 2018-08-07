@@ -34,8 +34,8 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
         follow_redirect!
         assert_template 'users/show'
         assert_select "a[href=?]", login_path, count: 0
-        assert_select "a[href=?]", logout_path
-        assert_select "a[href=?]", user_path(@user)
+        assert_select "a[href=?]", logout_path, count: 1
+        assert_select "a[href=?]", user_path(@user), count: 1
     end
 
 
